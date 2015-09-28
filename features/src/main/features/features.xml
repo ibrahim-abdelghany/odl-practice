@@ -55,4 +55,11 @@
     <bundle>mvn:org.opendaylight.l2switch.packethandler/packethandler-impl/{{VERSION}}</bundle>
     <configfile finalname="${config.configfile.directory}/${config.packethandler.configfile}">mvn:org.opendaylight.l2switch.packethandler/packethandler-config/{{VERSION}}/xml/config</configfile>
   </feature>
+
+  <feature name='odl-l2switch-example' description="OpenDaylight :: L2Switch :: Example" version='1.0.0-SNAPSHOT'>
+    <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
+    <!-- <feature version='1.0.0-SNAPSHOT'>odl-l2switch-example-api</feature> -->
+    <bundle>mvn:org.opendaylight.l2switch.example/example-impl/1.0.0-SNAPSHOT</bundle>
+    <configfile finalname="${configfile.directory}/example.xml">mvn:org.opendaylight.l2switch.example/example-impl/1.0.0-SNAPSHOT/xml/config</configfile>
+  </feature>
 </features>
