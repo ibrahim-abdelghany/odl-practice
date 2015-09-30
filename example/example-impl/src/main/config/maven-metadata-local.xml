@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata modelVersion="1.1.0">
-  <groupId>org.opendaylight.example</groupId>
+  <groupId>org.opendaylight.l2switch.example</groupId>
   <artifactId>example-impl</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <versioning>

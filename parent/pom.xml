@@ -32,6 +32,7 @@
     <config.addresstracker.configfile>56-addresstracker.xml</config.addresstracker.configfile>
     <config.hosttracker.configfile>57-hosttracker.xml</config.hosttracker.configfile>
     <config.l2switchmain.configfile>58-l2switchmain.xml</config.l2switchmain.configfile>
+    <config.example.configfile>example.xml</config.example.configfile>
   </properties>
 
   <dependencyManagement>

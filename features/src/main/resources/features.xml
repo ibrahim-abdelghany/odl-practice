@@ -57,14 +57,18 @@
     <configfile finalname="${config.configfile.directory}/${config.packethandler.configfile}">mvn:org.opendaylight.l2switch.packethandler/packethandler-config/${project.version}/xml/config</configfile>
   </feature>
 
-<feature name='odl-example-api' version='1.0.0-SNAPSHOT' description='OpenDaylight :: example :: api'>
+ <feature name='odl-example-api' version='1.0.0-SNAPSHOT' description='OpenDaylight :: example :: api'>
     <feature version='${yangtools.version}'>odl-yangtools-models</feature>
     <bundle>mvn:org.opendaylight.l2switch.example/example-api/1.0.0-SNAPSHOT</bundle>
-  </feature>
-  <feature name='odl-example' version='1.0.0-SNAPSHOT' description='OpenDaylight :: example'>
+ </feature>
+
+ <feature name='odl-example' version='1.0.0-SNAPSHOT' description='OpenDaylight :: example'>
+    <feature version='${yangtools.version}'>odl-yangtools-common</feature>
+    <feature version='${yangtools.version}'>odl-yangtools-binding</feature>
     <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
     <feature version='1.0.0-SNAPSHOT'>odl-example-api</feature>
+    <bundle>mvn:org.opendaylight.l2switch.example/example-api/1.0.0-SNAPSHOT</bundle>
     <bundle>mvn:org.opendaylight.l2switch.example/example-impl/1.0.0-SNAPSHOT</bundle>
-    <!--<configfile finalname="{config.configfile.directory}//example.xml">mvn:org.opendaylight.l2switch.example/example-impl/1.0.0-SNAPSHOT/xml/config</configfile>-->
-  </feature>
+    <configfile finalname="{config.configfile.directory}/${config.example.configfile}">mvn:org.opendaylight.l2switch.example/example-config/1.0.0-SNAPSHOT/xml/config</configfile>
+ </feature>
 </features>

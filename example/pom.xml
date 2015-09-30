@@ -28,5 +28,6 @@
   <modules>
     <module>example-api</module>
     <module>example-impl</module>
+    <module>example-config</module>
   </modules>
 </project>

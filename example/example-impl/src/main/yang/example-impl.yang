@@ -1,10 +1,10 @@
 module example-impl {
     yang-version 1;
-    namespace "urn:opendaylight:params:xml:ns:yang:example:impl";
+    namespace "urn:opendaylight:params:xml:ns:yang:example-impl";
     prefix "example-impl";
 
     import config { prefix config; revision-date 2013-04-05; }
-    import opendaylight-md-sal-binding { prefix md-sal-binding; revision-date 2013-10-28;}
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
 
     description
         "Service definition for example project";
@@ -14,32 +14,31 @@ module example-impl {
             "Initial revision";
     }
 
-    identity example {
+    identity example-impl {
         base config:module-type;
         config:java-name-prefix Example;
     }
     
     augment "/config:modules/config:module/config:configuration" {
-        case example {
-            when "/config:modules/config:module/config:type = 'example'";
-            container broker {
-                uses config:service-ref {
-                    refine type {
-                        mandatory true;
-                        config:required-identity md-sal-binding:binding-broker-osgi-registry;
-                    }
-                }
-            }
-
-            //Wires dependent services into this class - in this case the RPC registry service
-            //container rpc-registry {
-            //    uses config:service-ref {
-            //        refine type {
-            //            mandatory true;
-            //            config:required-identity mdsal:binding-rpc-registry;
-            //        }
-            //    }
-            //} 
+        case example-impl {
+            when "/config:modules/config:module/config:type = 'example-impl'";
+                  container data-broker {
+			        uses config:service-ref {
+			          refine type {
+			            mandatory false;
+			            config:required-identity mdsal:binding-async-data-broker;
+			          }
+			        }
+			      }
+			      container rpc-registry {
+			        uses config:service-ref {
+			          refine type {
+			            mandatory true;
+			            config:required-identity mdsal:binding-rpc-registry;
+			          }
+			        }
+			      }
+			     
            
         }
     }
